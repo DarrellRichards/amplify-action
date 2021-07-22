@@ -1,4 +1,4 @@
-FROM alphine:3.10
+FROM node:lts
 
 RUN npm install --global --unsafe-perm @aws-amplify/cli
 
