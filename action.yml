@@ -2,15 +2,18 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  amplify_env:
+    description: 'Env used to deploy the stack too'
     required: true
-    default: 'World'
+  amplify_command:
+    description: 'Command needed for Amplify Deploy'
+    required: true
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  url: # id of output
+    description: 'This will be output of the URL for the deployed route'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.amplify_env }}
+    - ${{ inputs.amplify_command }}
